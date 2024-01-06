@@ -35,6 +35,15 @@ typedef struct levelorder_queue_s
 	binary_tree_t *node;
 	struct levelorder_queue_s *next;
 } levelorder_queue_t;
+typedef struct queue_node_s {
+    binary_tree_t *node;
+    struct queue_node_s *next;
+} queue_node_t;
+typedef struct queue_s
+{
+    queue_node_t *front;
+    queue_node_t *rear;
+} queue_t;
 
 /* Printing helper function prototype */
 void binary_tree_print(const binary_tree_t *);
@@ -66,6 +75,8 @@ int binary_tree_is_complete(const binary_tree_t *tree);
 binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
 binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
 int binary_tree_is_bst(const binary_tree_t *tree);
+binary_tree_t *dequeue(queue_t *queue);
+void enqueue(queue_t *queue, binary_tree_t *node);
 bst_t *bst_insert(bst_t **tree, int value);
 bst_t *array_to_bst(int *array, size_t size);
 bst_t *bst_search(const bst_t *tree, int value);
